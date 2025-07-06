@@ -1,201 +1,110 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Haras Santa Bárbara - Inicio</title>
-  <style>
-    /* (CSS similar al anterior, ajustado para todos los archivos) */
-    body {
-      margin: 0;
-      font-family: 'Georgia', serif;
-      background-color: #fdfaf6;
-      color: #3b2f2f;
-    }
-    header {
-      background-color: #e9dccb;
-      padding: 20px;
-      text-align: center;
-    }
-    nav a {
-      color: #3b2f2f;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-    }
-    nav a:hover {
-      color: #4b6043;
-    }
-    .hero {
-      position: relative;
-      background-image: url('https://images.unsplash.com/photo-1580743388628-5b1dbb18b3b5');
-      background-size: cover;
-      background-position: center;
-      color: white;
-      text-align: center;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 1;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.4);
-      border-radius: 10px;
-    }
-    .hero-content h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-    }
-    .hero-content p {
-      font-size: 1.2em;
-    }
-    section {
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    section:nth-child(even) {
-      background-color: #f4f4f4;
-    }
-    h2 {
-      color: #4b6043;
-    }
-    .servicios ul {
-      list-style: square;
-      padding-left: 20px;
-    }
-    .galeria img {
-      width: 100%;
-      max-width: 300px;
-      margin: 10px;
-      border-radius: 8px;
-      transition: transform 0.3s;
-    }
-    .galeria img:hover {
-      transform: scale(1.05);
-    }
+<style>
+  body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    background-color: #ffffff; /* fondo blanco */
+    color: #ffffff; /* texto blanco por defecto (pero los párrafos los ajustamos en secciones) */
+  }
+  header {
+    background-color: #000000; /* header negro */
+    padding: 20px;
+    text-align: center;
+  }
+  header h1 {
+    color: #ffffff;
+    text-transform: uppercase; /* todo en mayúscula */
+    margin: 0;
+  }
+  nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+  }
+  nav a:hover {
+    color: #7d9463; /* verde oliva suave para hover */
+  }
+  section {
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: auto;
+    background-color: #000000; /* fondo negro para secciones */
+    color: #ffffff; /* texto blanco en secciones */
+  }
+  section:nth-child(even) {
+    /* Para mantener todo negro, lo dejamos igual */
+    background-color: #000000;
+  }
+  h1, h2 {
+    color: #ffffff;
+  }
+  p {
+    color: #dcdcdc; /* gris claro para párrafos para no fatigar la vista */
+  }
+  .servicios ul {
+    list-style: square;
+    padding-left: 20px;
+  }
+  .galeria img {
+    width: 100%;
+    max-width: 300px;
+    margin: 10px;
+    border-radius: 8px;
+    transition: transform 0.3s;
+    border: 2px solid #7d9463; /* marco verde oliva */
+  }
+  .galeria img:hover {
+    transform: scale(1.05);
+    border-color: #ffffff;
+  }
+  .galeria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+    margin: auto;
+  }
+  input, textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1em;
+  }
+  input[type="submit"] {
+    background-color: #7d9463;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  input[type="submit"]:hover {
+    background-color: #4b6043;
+  }
+  footer {
+    background-color: #000000;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+    color: #ffffff;
+  }
+  .redes a {
+    margin: 0 10px;
+    color: #ffffff;
+    text-decoration: none;
+  }
+  .redes a:hover {
+    color: #7d9463;
+  }
+  @media (max-width: 600px) {
     .galeria {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    form {
-      display: flex;
       flex-direction: column;
-      gap: 10px;
-      max-width: 400px;
-      margin: auto;
+      align-items: center;
     }
-    input, textarea {
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-family: inherit;
-      font-size: 1em;
-    }
-    input[type="submit"] {
-      background-color: #4b6043;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-    input[type="submit"]:hover {
-      background-color: #7d9463;
-    }
-    footer {
-      background-color: #e9dccb;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9em;
-    }
-    .redes a {
-      margin: 0 10px;
-      color: #3b2f2f;
-      text-decoration: none;
-    }
-    @media (max-width: 600px) {
-      .galeria {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-  </style>
-</head>
-<body>
+  }
+</style>
 
-  <header>
-    <h1>Haras Santa Bárbara</h1>
-    <nav>
-      <a href="index.html">Inicio</a>
-      <a href="index.html#nosotros">Nosotros</a>
-      <a href="index.html#servicios">Servicios</a>
-      <a href="paquetes.html">Paquetes</a>
-      <a href="index.html#galeria">Galería</a>
-      <a href="como-llegar.html">Cómo llegar</a>
-      <a href="index.html#contacto">Contacto</a>
-    </nav>
-  </header>
-
-  <section class="hero" id="inicio">
-    <div class="hero-content">
-      <h1>Bienvenidos a Haras Santa Bárbara</h1>
-      <p>Dedicados a la cría, doma y entrenamiento de caballos de alto rendimiento.</p>
-    </div>
-  </section>
-
-  <section id="nosotros">
-    <h2>Nosotros</h2>
-    <p>En Haras Santa Bárbara contamos con una larga tradición en la cría de caballos de calidad. Nuestra misión es promover la equitación responsable y el desarrollo de ejemplares destacados para competencias y recreación. Nuestra visión es ser referentes nacionales en el mundo ecuestre.</p>
-  </section>
-
-  <section id="servicios" class="servicios">
-    <h2>Servicios</h2>
-    <ul>
-      <li>Clases de equitación</li>
-      <li>Pensionado para caballos</li>
-      <li>Entrenamiento para competencias</li>
-    </ul>
-  </section>
-
-  <section id="galeria">
-    <h2>Galería</h2>
-    <div class="galeria">
-      <img src="https://images.unsplash.com/photo-1610632380983-4308ff52b7b4" alt="Caballo 1" />
-      <img src="https://images.unsplash.com/photo-1616616925403-9e88fd1c2057" alt="Caballo 2" />
-      <img src="https://images.unsplash.com/photo-1578575437130-527eed3abb34" alt="Caballo 3" />
-    </div>
-  </section>
-
-  <section id="contacto">
-    <h2>Contacto</h2>
-    <form action="https://formspree.io/f/mlekdvzp" method="POST">
-      <input type="text" name="nombre" placeholder="Nombre" required />
-      <input type="email" name="email" placeholder="Email" required />
-      <input type="tel" name="telefono" placeholder="Teléfono" />
-      <textarea name="mensaje" rows="5" placeholder="Mensaje" required></textarea>
-      <input type="submit" value="Enviar" />
-    </form>
-  </section>
-
-  <footer>
-    <p>Dirección: Camino Rural S/N, Campo Abierto, Provincia Ecuestre</p>
-    <div class="redes">
-      <a href="#">Facebook</a> | 
-      <a href="#">Instagram</a> | 
-      <a href="#">YouTube</a>
-    </div>
-    <p>&copy; 2025 Haras Santa Bárbara. Todos los derechos reservados.</p>
-  </footer>
-
-</body>
-</html>
