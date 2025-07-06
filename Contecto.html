@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Haras Santa Bárbara - Contacto</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #fdfaf6;
+      color: #3b2f2f;
+    }
+    header, footer {
+      background-color: #e9dccb;
+      padding: 20px;
+      text-align: center;
+    }
+    nav a {
+      color: #3b2f2f;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #4b6043;
+    }
+    main {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    h1, h2 {
+      color: #4b6043;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    input, textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-family: inherit;
+      font-size: 1em;
+    }
+    input[type="submit"] {
+      background-color: #4b6043;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      padding: 12px;
+      border-radius: 5px;
+    }
+    input[type="submit"]:hover {
+      background-color: #7d9463;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Haras Santa Bárbara</h1>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="index.html#nosotros">Nosotros</a>
+      <a href="index.html#servicios">Servicios</a>
+      <a href="paquetes.html">Paquetes</a>
+      <a href="index.html#galeria">Galería</a>
+      <a href="como-llegar.html">Cómo llegar</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Contacto</h2>
+    <form action="https://formspree.io/f/mlekdvzp" method="POST">
+      <input type="text" name="nombre" placeholder="Nombre" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="tel" name="telefono" placeholder="Teléfono" />
+      <input type="text" id="paquete" name="paquete" readonly />
+      <textarea name="mensaje" rows="5" placeholder="Mensaje" required></textarea>
+      <input type="submit" value="Enviar" />
+    </form>
+  </main>
+
+  <footer>
+    <p>Dirección: Camino Rural S/N, Campo Abierto, Provincia Ecuestre</p>
+    <div class="redes">
+      <a href="#">Facebook</a> | 
+      <a href="#">Instagram</a> | 
+      <a href="#">YouTube</a>
+    </div>
+    <p>&copy; 2025 Haras Santa Bárbara. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    // Obtener el parámetro paquete de la URL y asignarlo al input
+    const params = new URLSearchParams(window.location.search);
+    const paquete = params.get('paquete');
+    if (paquete) {
+      const inputPaquete = document.getElementById('paquete');
+      inputPaquete.value = paquete;
+      inputPaquete.placeholder = "Paquete seleccionado: " + paquete;
+    }
+  </script>
+
+</body>
+</html>

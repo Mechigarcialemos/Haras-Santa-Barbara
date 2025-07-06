@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Haras Santa Bárbara - Paquetes</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #fdfaf6;
+      color: #3b2f2f;
+    }
+    header, footer {
+      background-color: #e9dccb;
+      padding: 20px;
+      text-align: center;
+    }
+    nav a {
+      color: #3b2f2f;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #4b6043;
+    }
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    h1, h2 {
+      color: #4b6043;
+    }
+    .paquete {
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      background-color: #faf7f0;
+      transition: box-shadow 0.3s ease;
+    }
+    .paquete:hover {
+      box-shadow: 0 0 10px #7d9463;
+    }
+    button {
+      background-color: #4b6043;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background-color: #7d9463;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Haras Santa Bárbara</h1>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="index.html#nosotros">Nosotros</a>
+      <a href="index.html#servicios">Servicios</a>
+      <a href="paquetes.html">Paquetes</a>
+      <a href="index.html#galeria">Galería</a>
+      <a href="como-llegar.html">Cómo llegar</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Paquetes Disponibles</h2>
+
+    <div class="paquete">
+      <h3>Paquete Básico</h3>
+      <p>Incluye 4 clases de equitación y acceso a la pista durante un mes.</p>
+      <button onclick="reservar('Paquete Básico')">Reservar</button>
+    </div>
+
+    <div class="paquete">
+      <h3>Paquete Competencia</h3>
+      <p>Entrenamiento intensivo para competencias, 8 clases y asesoría personalizada.</p>
+      <button onclick="reservar('Paquete Competencia')">Reservar</button>
+    </div>
+
+    <div class="paquete">
+      <h3>Paquete Completo</h3>
+      <p>Clases ilimitadas, pensionado para caballos y entrenamiento completo.</p>
+      <button onclick="reservar('Paquete Completo')">Reservar</button>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>Dirección: Camino Rural S/N, Campo Abierto, Provincia Ecuestre</p>
+    <div class="redes">
+      <a href="#">Facebook</a> | 
+      <a href="#">Instagram</a> | 
+      <a href="#">YouTube</a>
+    </div>
+    <p>&copy; 2025 Haras Santa Bárbara. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    function reservar(paquete) {
+      // Redirigir a contacto.html pasando el paquete en la URL
+      const url = new URL(window.location.origin + '/contacto.html');
+      url.searchParams.set('paquete', paquete);
+      window.location.href = url.toString();
+    }
+  </script>
+
+</body>
+</html>
